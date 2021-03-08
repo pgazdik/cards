@@ -1,0 +1,128 @@
+body {
+    background-image: url("background/circles/yellow.jpg");
+    margin-top: 0;
+    margin-left: 0;
+}
+
+/* TOP */
+
+/* TABS IN GENERAL */
+
+.tab {
+    color: white;
+    background: rgba(0, 0, 0, 0.70);
+    cursor: pointer;
+}
+
+.tab.active {
+    background: rgba(18, 110, 34, 0.9);
+    cursor: default;
+}
+
+/* TOP TABS */
+
+#main-tab-container {
+    /* This prevents spaces between the tabs. There are spaces when viewed in browser, because there could be whitespaces in html file between divs. */
+    font-size: 0;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.main-tab {
+    border-radius: 0 0 6px 6px;
+    padding: 5px 5px 3px 5px;
+    margin-top: 5px;
+    margin-left:1px;
+    margin-right:1px;
+
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+
+    font-size:18px;
+    transition: 0.2s;
+
+    position:relative;
+    top:-10px; /* To erase top margin and padding */
+
+}
+
+.main-tab.active, .main-tab:hover {
+    top: -5px; /* Add margin */
+}
+
+/* SIDE TABS */
+
+#sub-tab-container {
+    margin-top: 10px;
+    float: left;
+    width: 150px;
+}
+
+.sub-tab {
+    border-radius: 0 6px 6px 0;
+    padding: 4px;
+    margin: 2px 0;
+}
+
+/* SPACE TABS */
+
+#space-container {
+    float:right;
+}
+
+#space-change-button {
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    background:rgba(255, 255, 255, 0.1);
+    background-image: url("icons/black-hole.png");
+    position: relative; /* z-inde only works if position is specified, so we pick relative which has no effect without extra properties */
+    z-index: 1; /* make this on top, so that hover works fine. This button shares space with #card-container-flex, which is shifter 15px towards top */
+
+    text-align: center;
+    vertical-align: middle;
+}
+
+#space-change-button:hover {
+    background-image: url("icons/black-hole-hover.png");
+}
+
+/* CARDS */
+
+#card-panel {
+    margin-right: -15px; /* This makes sure that we do not have a margin on the right side of the screen. */
+}
+
+#card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    clear: right; /* To make sure this is under the floating space-change-container */
+    
+    position: relative;
+    top: -15px; /* Every card has a 15px margin, but on top we don't need it, so we move the entire card-container 15px higher. */
+}
+
+.card {
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 15px;
+    padding: 5px;            
+    color: white;
+    background: rgba(0, 0, 40, 0.70);
+    overflow: hidden;
+
+    font-family: "Comic Sans MS", "Comic Sans";
+    font-size: 15px;
+
+    width: 300px;
+    height: 200px;
+}
+
+.shifted {
+    position: relative;
+}
