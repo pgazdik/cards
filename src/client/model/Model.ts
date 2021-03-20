@@ -1,64 +1,57 @@
-module Model {
+export abstract class Identifiable {
+    type: string;
 
-    export class CardApp {
-        configuration: Configuration;
-        cardData: CardData;
-
-        constructor(cardData: CardData, configuration: Configuration) {
-            this.cardData = cardData;
-            this.configuration = configuration;
-        }
+    constructor() {
+        this.type = typeof (this);
     }
+}
 
+export abstract class NamedElement extends Identifiable {
+    name: string = "";
 
-    export class Configuration {
-        activeSpace: Space;
-        activeMainTab: MainTab;
-        activeSubTab: SubTab;
-
-        constructor(activeSpace: Space, activeMainTab: MainTab, activeSubTab: SubTab) {
-            this.activeSpace = activeSpace;
-            this.activeMainTab = activeMainTab;
-            this.activeSubTab = activeSubTab;
-        }
+    constructor(name: string) {
+        super();
+        this.name = name;
     }
+}
 
-    export class CardData {
-        spaces: Space[] = [];
-    }
+export class CardData {
+    spaces: Space[] = [];
+}
+
+export class Space extends NamedElement {
+    mainTabs: MainTab[] = [];
+    constructor(name: string) { super(name); }
+}
+
+export class MainTab extends NamedElement {
+    subTabs: SubTab[] = [];
+    constructor(name: string) { super(name); }
+}
+
+export class SubTab extends NamedElement {
+    cards: Card[] = [];
+    constructor(name: string) { super(name); }
+}
 
 
-    export class Space {
-        mainTabs: MainTab[] = [];
-    }
+/** Cards */
 
-    export class MainTab {
-        subTabs: SubTab[] = [];
-    }
+export abstract class Card extends NamedElement {
+    customProperties: Map<string, string> = new Map();
+}
 
-    export class SubTab {
-        cards: Card[] = [];
-    }
+export class TextCard extends Card {
+    text: string = "";
+    constructor(name: string) { super(name); }
+}
 
+export class Link extends Card {
+    url: string = "";
+    constructor(name: string) { super(name); }
+}
 
-    /** Cards */
-
-    export abstract class Card {
-
-        name: string = "";
-        customProperties: Map<string, string> = new Map();
-
-    }
-
-    export class TextCard {
-        text: string = "";
-    }
-
-    export class Link {
-        url: string = "";
-    }
-
-    export class Folder {
-        cards: Card[] = [];
-    }
+export class Folder extends Card {
+    cards: Card[] = [];
+    constructor(name: string) { super(name); }
 }

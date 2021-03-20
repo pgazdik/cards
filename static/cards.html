@@ -7,6 +7,8 @@
 
     <link rel="stylesheet" href="/cards.css" />
 
+    <script src="./CardApp.js" type="module"></script>
+
 </head>
 
 <body>
@@ -14,81 +16,23 @@
     <div id="top-row">
         <div id="space-container">
             <div id="space-change-button"></div>
+            <div id="space-tab-container" hidden></div>
         </div>
 
-        <div id="main-tab-container">
-            <div class="tab main-tab">Cooking</div>
-            <div class="tab main-tab active">Books</div>
-            <div class="tab main-tab">Videos</div>
-            <div class="tab main-tab">Drawing</div>
-            <div class="tab main-tab">Stock</div>
+        <div id="main-tab-containers">
+            <!-- Filled dynamically by .main-tab-container divs - one for each space -->
         </div>
     </div>
 
-    <div id="sub-tab-container">
-        <div class="tab sub-tab">Online shops</div>
-        <div class="tab sub-tab active">Library</div>
-        <div class="tab sub-tab">Finished</div>
+    <div id="sub-tab-containers">
+        <!-- Filled dynamically by .sub-tab-container divs - one for main tab -->
     </div>
 
     <div id="card-panel">
-        <div id="card-container">
-            <div class="card-box">
-                <div class='card'>Hello 1</div>
-            </div>
-            <div class="card-box">
-                <div class='card'>This is just some card.</div>
-            </div>
-            <div class="card-box">
-                <div class='card'>
-                    Dies iræ, dies illa<br />
-                    Solvet sæclum in favilla<br />
-                    Teste David cum Sibylla<br />
-                    Quantus tremor est futurus<br />
-                    Quando iudex est venturus<br />
-                    Cuncta stricte discussurus<br />
-                    Tuba mirum spargens sonum,<br />
-                    Per sepulchra regionum,<br />
-                    Coget omnes ante thronum.<br />
-                </div>
-            </div>
-            <div class="card-box">
-                <div class='card'>Hello 4</div>
-            </div>
-            <div class="card-box">
-                <div class='card'>
-                    V půlnoci kdys v soumrak čirý <br />
-                    chorý bděl jsem sám a sirý, <br />
-                    nad věd zapomenutých svazky <br />
-                    starými jsem skláněl líc - <br />
-                    Skoro schvátilo mne spaní, <br />
-                    an ruch lehký znenadání <br />
-                    ozval se jak zaklepání <br />
-                    na mé dveře - a zas nic. <br />
-                </div>
-            </div>
-            <div class="card-box">
-                <div class='card'>Hello 6</div>
-            </div>
-            <div class="card-box">
-                <div class='card'>Hello 7</div>
-            </div>
-            <div class="card-box">
-                <div class='card'>Hello 8</div>
-            </div>
-            <div class="card-box">
-                <div class='card'>Hello 9</div>
-            </div>
-            <div class="card-box">
-                <div class='card'>Hello 10</div>
-            </div>
-            <div class="card-box">
-                <div class='card'>Hello 11</div>
-            </div>
+        <div id="card-containers">
+            <!-- Filled dynamically by .card-container divs - one for sub tab -->
         </div>
     </div>
-
-    <script data-main="cards.js" src="require.js"></script>
 
 </body>
 

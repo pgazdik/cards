@@ -1,12 +1,7 @@
-/// <reference path="./CardApp.ts" />
-
-
-new Controllers.CardApp().print();
-
 initialize();
 
 function initialize() {
-    const container = document.getElementById('card-container')
+    const container = document.getElementById('tmp-resortable-container')
     if (container)
         reSortable(container);
 }
@@ -39,7 +34,7 @@ function reSortable(container: HTMLElement) {
         container.addEventListener('dragend', _onDragEnd, false);
     });
 
-    function _onDragOver(e: DragEvent) {
+    function _onDragOver(e: DragEvent): void {
         e.preventDefault();
         if (e.dataTransfer)
             e.dataTransfer.dropEffect = 'move';
@@ -48,7 +43,7 @@ function reSortable(container: HTMLElement) {
             removeShifts();
     }
 
-    function _handleDragOver(e: DragEvent) {
+    function _handleDragOver(e: DragEvent): boolean {
         var target = <HTMLElement>e.target;
         if (!target)
             return false;
@@ -103,24 +98,24 @@ function reSortable(container: HTMLElement) {
         return false;
     }
 
-    function _wouldInsertAfter(target: HTMLElement, e: DragEvent) {
+    function _wouldInsertAfter(target: HTMLElement, e: DragEvent): boolean {
         var targetPos = target.getBoundingClientRect();
         return (e.clientX - targetPos.left) / (targetPos.right - targetPos.left) > 0.5;
     }
 
-    function _wouldInsertOnInitialPosition(target: HTMLElement, next: boolean) {
+    function _wouldInsertOnInitialPosition(target: HTMLElement, next: boolean): boolean {
         return (next && nextCardBox(target) == dragEl) ||
             (!next && nextCardBox(dragEl) == target)
     }
 
-    function _isSamePosition(target: HTMLElement, next: boolean) {
-        return lastTarget && (
+    function _isSamePosition(target: HTMLElement, next: boolean): boolean {
+        return lastTarget != null && (
             (lastNext && nextCardBox(lastTarget) === target && !next) ||
             (next && nextCardBox(target) === lastTarget && !lastNext)
         )
     }
 
-    function _onDragEnd(evt: DragEvent) {
+    function _onDragEnd(evt: DragEvent): void {
         evt.preventDefault();
         removeShifts();
 
@@ -133,7 +128,7 @@ function reSortable(container: HTMLElement) {
         container.removeEventListener('dragend', _onDragEnd, false);
     }
 
-    function removeShifts() {
+    function removeShifts(): void {
         document.querySelectorAll(".shifted").forEach(e => {
             var he = <HTMLElement>e;
             e.classList.remove("shifted");

@@ -2,6 +2,9 @@ body {
     background-image: url("background/circles/yellow.jpg");
     margin-top: 0;
     margin-left: 0;
+
+    /* Because #card-panel uses negative margin, a horizontal scrollbar would be shown. */
+    overflow-x: hidden;
 }
 
 /* TOP */
@@ -10,18 +13,18 @@ body {
 
 .tab {
     color: white;
-    background: rgba(0, 0, 0, 0.70);
+    background: rgba(0, 0, 0, 0.7);
     cursor: pointer;
 }
 
-.tab.active {
+.tab.active, .tab.active:hover {
     background: rgba(18, 110, 34, 0.9);
     cursor: default;
 }
 
 /* TOP TABS */
 
-#main-tab-container {
+#main-tab-containers {
     /* This prevents spaces between the tabs. There are spaces when viewed in browser, because there could be whitespaces in html file between divs. */
     font-size: 0;
 
@@ -55,7 +58,7 @@ body {
 
 /* SIDE TABS */
 
-#sub-tab-container {
+#sub-tab-containers {
     margin-top: 10px;
     float: left;
     width: 150px;
@@ -66,6 +69,12 @@ body {
     padding: 4px;
     margin: 2px 0;
 }
+
+.sub-tab:hover {
+    /* This color is the active tab green divided by 3 */
+    background: rgba(6, 37, 11, 0.7);
+}
+
 
 /* SPACE TABS */
 
@@ -90,13 +99,36 @@ body {
     background-image: url("icons/black-hole-hover.png");
 }
 
+#space-tab-container {
+    position: absolute;
+    z-index: 1;
+    right:5px;
+    min-width: 100px;
+    padding: 4px;
+    background: rgba(100, 100, 100, 0.7);
+    border-radius: 6px;
+}
+
+.space-tab {
+    border-radius: 6px;
+    padding: 4px;
+    margin: 4px 0;
+}
+
+.space-tab:hover {
+    /* This color is the active tab green divided by 3 */
+    background: rgba(6, 37, 11, 0.7);
+}
+
 /* CARDS */
 
 #card-panel {
-    margin-right: -15px; /* This makes sure that we do not have a margin on the right side of the screen. */
+    /* This makes sure that we do not have a margin on the right side of the screen (cause by the margin of individual cards). 
+        However, this alone would introduce a horizontal scrollbar, which is hidden by the "body" rules. */
+    margin-right: -15px; 
 }
 
-#card-container {
+.card-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -121,6 +153,18 @@ body {
 
     width: 300px;
     height: 200px;
+}
+
+.card > textarea {
+    background: none;
+    color: inherit;
+    font: inherit;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    resize: none;    
+    height: 100%;
+    width: 100%;
 }
 
 .shifted {

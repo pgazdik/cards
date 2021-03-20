@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cards</title>
+
+    <link rel="stylesheet" href="/cards.css" />
+
+    <script src="./tmp/Playground.js" type="module"></script>
+    <script src="playground.js"></script>
+
+</head>
+
+<body>
+
+    <div id="top-row">
+        <div id="space-container">
+            <div id="space-change-button"></div>
+        </div>
+
+        <div id="main-tab-containers">
+            <!-- One for each space -->
+            <div class="main-tab-container">
+                <div class="tab main-tab">Cooking</div>
+                <div class="tab main-tab active">Books</div>
+                <div class="tab main-tab">Videos</div>
+                <div class="tab main-tab">Drawing</div>
+                <div class="tab main-tab">Stock</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="sub-tab-containers">
+        <!-- One for each Main tab -->
+        <div class="sub-tab-container">
+            <div class="tab sub-tab">Online shops</div>
+            <div class="tab sub-tab active">Library</div>
+            <div class="tab sub-tab">Finished</div>
+        </div>
+    </div>
+
+    <div id="card-panel">
+        <div id="card-containers">
+            <!-- One for each sub-tab -->
+            <!-- The id will not be there, as this container will be created dynamically - but we need it for now to initialize the re-sorting -->
+            <div id="tmp-resortable-container" class="card-container">
+                <div class="card-box">
+                    <div class='card'>Hello 1</div>
+                </div>
+                <div class="card-box">
+                    <div class='card'>This is just some card.</div>
+                </div>
+                <div class="card-box">
+                    <div class='card'>
+                        Dies iræ, dies illa<br />
+                        Solvet sæclum in favilla<br />
+                        Teste David cum Sibylla<br />
+                        Quantus tremor est futurus<br />
+                        Quando iudex est venturus<br />
+                        Cuncta stricte discussurus<br />
+                        Tuba mirum spargens sonum,<br />
+                        Per sepulchra regionum,<br />
+                        Coget omnes ante thronum.<br />
+                    </div>
+                </div>
+                <div class="card-box">
+                    <div class='card'>Hello 4</div>
+                </div>
+                <div class="card-box">
+                    <div class='card'>
+                        V půlnoci kdys v soumrak čirý <br />
+                        chorý bděl jsem sám a sirý, <br />
+                        nad věd zapomenutých svazky <br />
+                        starými jsem skláněl líc - <br />
+                        Skoro schvátilo mne spaní, <br />
+                        an ruch lehký znenadání <br />
+                        ozval se jak zaklepání <br />
+                        na mé dveře - a zas nic. <br />
+                    </div>
+                </div>
+                <div class="card-box">
+                    <div class='card'>Hello 6</div>
+                </div>
+                <div class="card-box">
+                    <div class='card'>Hello 7</div>
+                </div>
+                <div class="card-box">
+                    <div class='card'>Hello 8</div>
+                </div>
+                <div class="card-box">
+                    <div class='card'>Hello 9</div>
+                </div>
+                <div class="card-box">
+                    <div class='card'>Hello 10</div>
+                </div>
+                <div class="card-box">
+                    <div class='card'>Hello 11</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

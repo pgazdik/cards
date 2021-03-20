@@ -11,12 +11,12 @@ app.use(express.static("dist/client"))
 app.use(express.static("node_modules/requirejs"))
 
 app.get('/', (req, res) => {
-  res.send('What are doing here?');
+  res.send('What are you doing here?');
 });
 
 app.post('/preview', async (req, res, next) => {
   try {
-    const url = req.body && req.body.url;
+    const { url } = req.body;
     if (!url)
       throw 'No url provided via body: ' + body;
 

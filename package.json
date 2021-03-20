@@ -17,7 +17,6 @@
   "dependencies": {
     "express": "^4.17.1",
     "link-preview-js": "^2.1.6",
-    "requirejs": "^2.3.6",
     "socket.io-client": "^3.1.2"
   }
 }
