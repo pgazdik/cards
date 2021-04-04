@@ -49,14 +49,11 @@ export class DragSorter {
             nextTarget = target;
             nextNext = wouldInsertAfter(nextTarget, e);
 
+            if (isSamePositionAsLastTime())
+                return false;
+
             if (wouldInsertOnOriginalPosition())
                 return true;
-
-            if (nextTarget === lastTarget && nextNext === lastNext)
-                return false;
-
-            if (isSamePosition())
-                return false;
 
             removeShifts();
             applyShifts();
@@ -85,7 +82,10 @@ export class DragSorter {
                 (!nextNext && nextDraggableElement(dragEl) == nextTarget)
         }
 
-        function isSamePosition(): boolean {
+        function isSamePositionAsLastTime(): boolean {
+            if (nextTarget === lastTarget && nextNext === lastNext)
+                return true;
+
             return lastTarget != null && (
                 (lastNext && nextDraggableElement(lastTarget) === nextTarget && !nextNext) ||
                 (nextNext && nextDraggableElement(nextTarget) === lastTarget && !lastNext)

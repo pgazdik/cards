@@ -106,6 +106,7 @@ export class CardApp {
                 this.setActiveSpace(spaceController);
         }
     }
+
     flipSpaceTabsVisibility(): void {
         this.context.spaceTabContainer.hidden = !this.context.spaceTabContainer.hidden;
     }

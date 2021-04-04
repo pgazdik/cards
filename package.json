@@ -4,9 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "tsc && node src/server/app.js",
+    "start": "tsc --build src/client && node dist/server/app.js",
     "stop": "node src/server/stop.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha src/server-test/**/*.js"
   },
   "author": "",
   "license": "ISC",
@@ -16,7 +16,10 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "link-preview-js": "^2.1.6",
-    "socket.io-client": "^3.1.2"
+    "link-preview-js": "^2.1.13",
+    "mocha": "^9.2.1",
+    "node-persist": "^3.1.0",
+    "socket.io-client": "^3.1.2",
+    "uuid": "^8.3.2"
   }
 }

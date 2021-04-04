@@ -1,8 +1,9 @@
 export abstract class Identifiable {
+    id: string | null = null;
     type: string;
 
     constructor() {
-        this.type = typeof (this);
+        this.type = this.constructor.name;
     }
 }
 
@@ -15,7 +16,7 @@ export abstract class NamedElement extends Identifiable {
     }
 }
 
-export class CardData {
+export class CardData extends Identifiable {
     spaces: Space[] = [];
 }
 
@@ -34,6 +35,9 @@ export class SubTab extends NamedElement {
     constructor(name: string) { super(name); }
 }
 
+export class CardHolder extends Identifiable {
+    card: Card | null = null;
+}
 
 /** Cards */
 
