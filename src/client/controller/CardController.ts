@@ -1,5 +1,5 @@
 import { Context } from "../CardApp.js";
-import { Card } from "../model/Model.js";
+import { Card } from "../model/DataModel.js";
 
 export class CardController {
     card: Card;

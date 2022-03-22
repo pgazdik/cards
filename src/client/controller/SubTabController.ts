@@ -1,5 +1,5 @@
 import { Context } from "../CardApp.js";
-import { SubTab } from "../model/Model.js";
+import { SubTab } from "../model/DataModel.js";
 import { CardController } from "./CardController.js";
 import { DragSorter } from "./DragSorter.js";
 

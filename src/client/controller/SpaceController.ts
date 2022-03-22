@@ -1,4 +1,4 @@
-import { Space } from "../model/Model.js";
+import { Space } from "../model/DataModel.js";
 import { MainTabController } from "./MainTabController.js";
 import { Context } from "../CardApp.js";
 

@@ -1,3 +1,4 @@
+import { CardsRequest } from './model/ServiceModel';
 
 // var params= {
 //     url: "https://www.youtube.com"
@@ -38,7 +39,7 @@ doPost('/test', { parentId: "card-data", node: { type: "Space", name: "Hardcoded
 // });
 
 
-function doPost(path: string, params: any, onread: (request: XMLHttpRequest) => void): void {
+function doPost(path: string, params: CardsRequest | any, onread: (request: XMLHttpRequest) => void): void {
     params.test = true;
 
     var xhr = new XMLHttpRequest();

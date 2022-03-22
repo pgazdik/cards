@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "tsc --build src/client && node dist/server/app.js",
+    "startts": "tsc --build src/client && node dist/server/app.js",
+    "start": "tsc --build src/client && node src/server/app.js",
     "stop": "node src/server/stop.js",
     "test": "mocha src/server-test/**/*.js"
   },

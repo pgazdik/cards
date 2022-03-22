@@ -1,5 +1,5 @@
 import { Context } from "../CardApp.js";
-import { MainTab } from "../model/Model.js";
+import { MainTab } from "../model/DataModel.js";
 import { SubTabController } from "./SubTabController.js";
 
 export class MainTabController {

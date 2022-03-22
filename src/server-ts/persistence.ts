@@ -1,4 +1,5 @@
-import { Request } from "express";
+import { NewNodeRequest } from '../client/model/ServiceModel';
+/// <reference path="../../dist/client/model/DataModel.d.ts" />
 
 const nodePersist = require('node-persist');
 const uuid = require('uuid')
@@ -26,16 +27,18 @@ exports.Storage = class Storage {
         await this.writeKeyValue(CARD_DATA_ID, cardData);
     }
 
-    async dispatch(operation: string, params: any) {
+    async dispatch(operation: string, params: any): Promise<any> {
         switch (operation) {
             case "newNode":
                 return this.newNode(params);
             case "nodeChanged":
                 return this.nodeChanged(params);
         }
+
+        throw new Error("Unsupported operation: " + operation);
     }
 
-    async newNode(params: any) {
+    async newNode(params: NewNodeRequest) {
         const { node, parentId } = params;
         if (!node)
             throw 'No node to store in body: ' + params;
@@ -46,7 +49,7 @@ exports.Storage = class Storage {
         this.verifyValidParent(parent, node);
 
         node.id = uuid.v1();
-        node.children = [];
+        node.children = []; // TODO cannot store node, new node must be created based on node type
 
         await this.writeKeyValue(node.id, node);
 
@@ -82,12 +85,12 @@ exports.Storage = class Storage {
         return "OK";
     }
 
-    async writeKeyValue(key: string, value: string) {
+    async writeKeyValue(key: string, value: any): Promise<void> {
         await this.storage.setItem(key, value);
         print("Written: " + value + " for key: " + key);
     }
 
-    async requireValue(key: string) {
+    async requireValue(key: string): Promise<any> {
         const value = await this.readValue(key);
         if (!value)
             throw new Error("No value found for key: " + key);
@@ -95,7 +98,7 @@ exports.Storage = class Storage {
     }
 
 
-    async readValue(key: string) {
+    async readValue(key: string): Promise<any> {
         const value = await this.storage.getItem(key);
         print("Read: " + value + " for key: " + key);
         return value;

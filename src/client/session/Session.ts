@@ -1,4 +1,4 @@
-import * as Model from "../model/Model.js";
+import * as Model from "../model/DataModel.js";
 import { RpcTools } from "../rpc/Rpc.js";
 
 export class Session {

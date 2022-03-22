@@ -1,5 +1,5 @@
 import { SpaceController } from "./controller/SpaceController.js";
-import { Card, MainTab, Space, SubTab, TextCard } from "./model/Model.js";
+import { Card, MainTab, Space, SubTab, TextCard } from "./model/DataModel.js";
 import { Session } from "./session/Session.js";
 
 export class Context {
